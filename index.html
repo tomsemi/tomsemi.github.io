@@ -192,6 +192,75 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-runtime机制分析" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/09/runtime机制分析/" class="article-date">
+  	<time datetime="2015-10-09T07:42:12.000Z" itemprop="datePublished">2015-10-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/09/runtime机制分析/">runtime 机制</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Quick_Start">Quick Start</h2><p>对于runtime机制，在网上找到的资料大概就是怎么去用这些东西，以及查看runtime.h头文件中的实现，当然这确实是一种很好的学习方法，但是，其实我们还是不会知道runtime底层编译成C++语言之后做了什么？<br>查到一个大牛给资料，顿时对runtime有了一定认识！</p>
+<p>我们随便写一个小程序，代码如下：<br>person类头文件如下，</p>
+<!-- lang: cpp -->
+<p>#import <foundation foundation.h=""><br>@interface Person : NSObject</foundation></p>
+<p>@property (nonatomic, strong) NSString *name;<br>@property (nonatomic, assign) int age;</p>
+<p>@end</p>
+<p>main.m文件如下</p>
+<!-- lang: cpp -->
+<p>int main(int argc, const char * argv[])<br>{</p>
+<p>Person *p = [[Person alloc] init];</p>
+<p>NSString *str = @”zhangsan”;</p>
+<p>p.name = str;<br>// p.name 等价于<br>[p setName:str];</p>
+<p>p.age = 20;</p>
+<p>return 0;<br>}</p>
+<p>然后我们打开终端，在命令行找到cd到文件目录，然后中输入：</p>
+<p>clang -rewrite-objc main.m<br>命令可以将main.m编译成C++的代码，改成不同的文件名，就会生成不同的c++代码<br>这是就生成了main.cpp这个c++文件，打开文件代码<br>查看该main.cpp最底下的main函数，<br>这样我们就可以看到底层具体实现的方式！</p>
+<p>这时，我们就需要知道这些方法：<br>objc_msgSend 可以给对象发送消息<br>objc_getClass(“Person”) 可以获取到指定名称的对象<br>sel_registerName(“alloc”) 可以调用到对象的方法</p>
+<p>通过查看，c++代码，我们得出结论：<br>使用objc_msgSend函数，给objc_getClass函数实例化的对象发送sel_registerName获取到的方法<br>这么一个消息<br>代码是给人看的，顺带让机器实现功能。日常的程序开发过程中，要少用runtime，</p>
+<p>那什么时候会使用runtime呢？<br>runtime应用的时机：<br>1&gt; 当需要非常高的性能开发时，使用runtime，注释：oc的代码已经无法满足性能需求<br>2&gt; 当我们对系统内部的实现很好奇的时候，可以用clang反编译成c++去看底层的实现机制！</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-Java关键字" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
