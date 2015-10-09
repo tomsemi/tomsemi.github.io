@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hello World | Hexo</title>
+  <title>runtime 使用分析 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+  <meta name="description" content="Quick Start我们前面已经讲过一篇runtime 原理，现在这篇文章主要介绍的是runtime是什么以及怎么用！希望对读者有所帮助！
+首先，第一个问题，1》runtime实现的机制是什么,怎么用，一般用于干嘛？这个问题我就不跟大家绕弯子了，直接告诉大家，runtime是一套比较底层的纯C语言API, 属于1个C语言库, 包含了很多底层的C语言API。在我们平时编写的OC代码中, 程序运行过">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2015/09/25/hello-world/index.html">
+<meta property="og:title" content="runtime 使用分析">
+<meta property="og:url" content="http://yoursite.com/2015/09/25/runtime使用分析/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2015-09-25T10:46:49.000Z">
+<meta property="og:description" content="Quick Start我们前面已经讲过一篇runtime 原理，现在这篇文章主要介绍的是runtime是什么以及怎么用！希望对读者有所帮助！
+首先，第一个问题，1》runtime实现的机制是什么,怎么用，一般用于干嘛？这个问题我就不跟大家绕弯子了，直接告诉大家，runtime是一套比较底层的纯C语言API, 属于1个C语言库, 包含了很多底层的C语言API。在我们平时编写的OC代码中, 程序运行过">
+<meta property="og:updated_time" content="2015-10-09T07:27:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="runtime 使用分析">
+<meta name="twitter:description" content="Quick Start我们前面已经讲过一篇runtime 原理，现在这篇文章主要介绍的是runtime是什么以及怎么用！希望对读者有所帮助！
+首先，第一个问题，1》runtime实现的机制是什么,怎么用，一般用于干嘛？这个问题我就不跟大家绕弯子了，直接告诉大家，runtime是一套比较底层的纯C语言API, 属于1个C语言库, 包含了很多底层的C语言API。在我们平时编写的OC代码中, 程序运行过">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -194,10 +194,10 @@ Quick">
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-runtime使用分析" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/09/25/hello-world/" class="article-date">
+      <a href="/2015/09/25/runtime使用分析/" class="article-date">
   	<time datetime="2015-09-25T10:07:45.000Z" itemprop="datePublished">2015-09-25</time>
 </a>
     </div>
@@ -211,7 +211,7 @@ Quick">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      runtime 使用分析
     </h1>
   
 
@@ -227,15 +227,44 @@ Quick">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a><br><a id="more"></a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <h2 id="Quick_Start">Quick Start</h2><p>我们前面已经讲过一篇runtime 原理，现在这篇文章主要介绍的是runtime是什么以及怎么用！希望对读者有所帮助！</p>
+<p>首先，第一个问题，<br>1》runtime实现的机制是什么,怎么用，一般用于干嘛？<br>这个问题我就不跟大家绕弯子了，直接告诉大家，<br>runtime是一套比较底层的纯C语言API, 属于1个C语言库, 包含了很多底层的C语言API。<br>在我们平时编写的OC代码中, 程序运行过程时, 其实最终都是转成了runtime的C语言代码, runtime算是OC的幕后工作者<br>比如说，下面一个创建对象的方法中，<br>举例:<br>OC :<br>[[MJPerson alloc] init]<br>runtime :<br>objc_msgSend(objc_msgSend(“MJPerson” , “alloc”), “init”)</p>
+<p>第二个问题<br>runtime 用来干什么呢？？用在那些地方呢？怎么用呢？<br>runtime是属于OC的底层, 可以进行一些非常底层的操作(用OC是无法现实的, 不好实现)</p>
+<p>在程序运行过程中, 动态创建一个类(比如KVO的底层实现)</p>
+<p>在程序运行过程中, 动态地为某个类添加属性\方法, 修改属性值\方法</p>
+<p>遍历一个类的所有成员变量(属性)\所有方法<br>例如：我们需要对一个类的属性进行归档解档的时候属性特别的多，这时候，我们就会写很多对应的代码，但是如果使用了runtime就可以动态设置！<br>例如，PYPerson.h的文件如下所示</p>
+<p>import<br>@interface PYPerson : NSObject<br>@property (nonatomic, assign) int age;<br>@property (nonatomic, assign) int height;<br>@property (nonatomic, copy) NSString *name;<br>@property (nonatomic, assign) int age2;<br>@property (nonatomic, assign) int height2;<br>@property (nonatomic, assign) int age3;<br>@property (nonatomic, assign) int height3;<br>@property (nonatomic, assign) int age4;<br>@property (nonatomic, assign) int height4;</p>
+<p>@end</p>
+<p>而PYPerson.m实现文件的内容如下</p>
+<!-- lang: cpp -->
+<p>#import “PYPerson.h”<br>import<br>@implementation PYPerson</p>
+<p>(void)encodeWithCoder:(NSCoder )encoder<br>{<br>unsigned int count = 0;<br>Ivar ivars = class_copyIvarList([PYPerson class], &amp;count);</p>
+<p>for (int i = 0; i&lt;count; i++) {</p>
+<p>// 取出i位置对应的成员变量<br>Ivar ivar = ivars[i];</p>
+<p>// 查看成员变量<br>const char *name = ivar_getName(ivar);</p>
+<p>// 归档<br>NSString *key = [NSString stringWithUTF8String:name];<br>id value = [self valueForKey:key];<br>[encoder encodeObject:value forKey:key];<br>}</p>
+<p>free(ivars);<br>}</p>
+<p>(id)initWithCoder:(NSCoder *)decoder<br>{<br>if (self = [super init]) {</p>
+<p>unsigned int count = 0;<br>Ivar *ivars = class_copyIvarList([PYPerson class], &amp;count);</p>
+<p>for (int i = 0; i&lt;count; i++) {<br>    // 取出i位置对应的成员变量<br>    Ivar ivar = ivars[i];</p>
+<pre><code><span class="comment">// 查看成员变量</span>
+<span class="keyword">const</span> <span class="keyword">char</span> *name = ivar_getName(ivar);
+
+<span class="comment">// 归档</span>
+<span class="built_in">NSString</span> *key = [<span class="built_in">NSString</span> stringWithUTF8String:name];
+<span class="keyword">id</span> value = [decoder decodeObjectForKey:key];
+
+<span class="comment">// 设置到成员变量身上</span>
+[<span class="keyword">self</span> setValue:value forKey:key];
+</code></pre><p>}</p>
+<p>free(ivars);<br>}<br>return self;<br>}</p>
+<p>@end</p>
+<p>这样我们可以看到归档和解档的案例其实是runtime写下的</p>
+<p>学习，runtime机制首先要了解下面几个问题<br>1相关的头文件和函数<br>1&gt; 头文件</p>
+<p>利用头文件，我们可以查看到runtime中的各个方法！<br>2&gt; 相关应用</p>
+<p>NSCoding(归档和解档, 利用runtime遍历模型对象的所有属性)<br>字典 –&gt; 模型 (利用runtime遍历模型对象的所有属性, 根据属性名从字典中取出对应的值, 设置到模型的属性上)<br>KVO(利用runtime动态产生一个类)<br>用于封装框架(想怎么改就怎么改)<br>这就是我们runtime机制的只要运用方向<br>3&gt; 相关函数</p>
+<p>objc_msgSend : 给对象发送消息<br>class_copyMethodList : 遍历某个类所有的方法<br>class<em>copyIvarList : 遍历某个类所有的成员变量<br>class</em>…..<br>这是我们学习runtime必须知道的函数！<br>4.必备常识<br>1&gt; Ivar : 成员变量<br>2&gt; Method : 成员方法<br>从上面例子中我们看到我们定义的成员变量，如果要是动态创建方法，可以使用Method，</p>
+<p>也许，看到这里，你是否对runtime有了更深入的了解呢？在这里，希望我们大家相互交流！有什么错误之处，还请指正。</p>
 
       
     </div>
@@ -280,7 +309,7 @@ Quick">
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="hello-world" data-title="Hello World" data-url="http://yoursite.com/2015/09/25/hello-world/"></div>
+	<div class="ds-thread" data-thread-key="runtime使用分析" data-title="runtime 使用分析" data-url="http://yoursite.com/2015/09/25/runtime使用分析/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
