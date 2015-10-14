@@ -3,17 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo</title>
+  <title>二级指针分析 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="Quick Start本章中使用的程序是使用Linux的GCC编译出来的，所以汇编代码使用的是AT&amp;amp;T汇编指令，跟windows下使用Intel指令有所不同，详见AT&amp;amp;T与Intel汇编比较。同时，由于我是用的是64位机器，为了方便讲解32位的程序以及防止编译器对代码的优化影响我们对问题的分析，本章所讲解的所有代码编译选项为：gcc -m32 -O0。
+概述Pointers to">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二级指针分析">
+<meta property="og:url" content="http://yoursite.com/2015/10/14/二级指针分析/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description">
+<meta property="og:description" content="Quick Start本章中使用的程序是使用Linux的GCC编译出来的，所以汇编代码使用的是AT&amp;amp;T汇编指令，跟windows下使用Intel指令有所不同，详见AT&amp;amp;T与Intel汇编比较。同时，由于我是用的是64位机器，为了方便讲解32位的程序以及防止编译器对代码的优化影响我们对问题的分析，本章所讲解的所有代码编译选项为：gcc -m32 -O0。
+概述Pointers to">
+<meta property="og:updated_time" content="2015-10-14T13:03:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-<meta name="twitter:description">
+<meta name="twitter:title" content="二级指针分析">
+<meta name="twitter:description" content="Quick Start本章中使用的程序是使用Linux的GCC编译出来的，所以汇编代码使用的是AT&amp;amp;T汇编指令，跟windows下使用Intel指令有所不同，详见AT&amp;amp;T与Intel汇编比较。同时，由于我是用的是64位机器，为了方便讲解32位的程序以及防止编译器对代码的优化影响我们对问题的分析，本章所讲解的所有代码编译选项为：gcc -m32 -O0。
+概述Pointers to">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -190,9 +194,7 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-二级指针分析" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-二级指针分析" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2015/10/14/二级指针分析/" class="article-date">
@@ -208,12 +210,19 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/14/二级指针分析/">二级指针分析</a>
+    <h1 class="article-title" itemprop="name">
+      二级指针分析
     </h1>
   
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -274,444 +283,62 @@
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/10/14/objective c runtime system/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
   
 </article>
 
 
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="二级指针分析" data-title="二级指针分析" data-url="http://yoursite.com/2015/10/14/二级指针分析/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
 
 
 
-
-  
-    <article id="post-objective c runtime system" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/14/objective c runtime system/" class="article-date">
-  	<time datetime="2015-10-14T11:13:39.000Z" itemprop="datePublished">2015-10-14</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="title:oc_runtime_system">title:oc runtime system</h2><h2 id="Quick_Start">Quick Start</h2><p>与Runtime交互<br>Objc 从三种不同的层级上与 Runtime 系统进行交互，分别是通过 Objective-C 源代码，通过 Foundation 框架的NSObject类定义的方法，通过对 runtime 函数的直接调用。</p>
-<p>Objective-C源代码<br>大部分情况下你就只管写你的Objc代码就行，runtime 系统自动在幕后辛勤劳作着。<br>还记得引言中举的例子吧，消息的执行会使用到一些编译器为实现动态语言特性而创建的数据结构和函数，Objc中的类、方法和协议等在 runtime 中都由一些数据结构来定义，这些内容在后面会讲到。（比如objc_msgSend函数及其参数列表中的id和SEL都是啥）<br>NSObject的方法<br>Cocoa 中大多数类都继承于NSObject类，也就自然继承了它的方法。最特殊的例外是NSProxy，它是个抽象超类，它实现了一些消息转发有关的方法，可以通过继承它来实现一个其他类的替身类或是虚拟出一个不存在的类，说白了就是领导把自己展现给大家风光无限，但是把活儿都交给幕后小弟去干。<br>有的NSObject中的方法起到了抽象接口的作用，比如description方法需要你重载它并为你定义的类提供描述内容。NSObject还有些方法能在运行时获得类的信息，并检查一些特性，比如class返回对象的类；isKindOfClass:和isMemberOfClass:则检查对象是否在指定的类继承体系中；respondsToSelector:检查对象能否响应指定的消息；conformsToProtocol:检查对象是否实现了指定协议类的方法；methodForSelector:则返回指定方法实现的地址。<br>Runtime的函数<br>Runtime 系统是一个由一系列函数和数据结构组成，具有公共接口的动态共享库。头文件存放于/usr/include/objc目录下。许多函数允许你用纯C代码来重复实现 Objc 中同样的功能。虽然有一些方法构成了NSObject类的基础，但是你在写 Objc 代码时一般不会直接用到这些函数的，除非是写一些 Objc 与其他语言的桥接或是底层的debug工作。在Objective-C Runtime Reference中有对 Runtime 函数的详细文档。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-sample" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/14/sample/" class="article-date">
-  	<time datetime="2015-10-14T11:13:04.000Z" itemprop="datePublished">2015-10-14</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/14/sample/">sample</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Quick_Start">Quick Start</h2>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-runtime机制分析" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/09/runtime机制分析/" class="article-date">
-  	<time datetime="2015-10-09T07:42:12.000Z" itemprop="datePublished">2015-10-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/09/runtime机制分析/">runtime 机制</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Quick_Start">Quick Start</h2><p>对于runtime机制，在网上找到的资料大概就是怎么去用这些东西，以及查看runtime.h头文件中的实现，当然这确实是一种很好的学习方法，但是，其实我们还是不会知道runtime底层编译成C++语言之后做了什么？<br>查到一个大牛给资料，顿时对runtime有了一定认识！</p>
-<p>我们随便写一个小程序，代码如下：<br>person类头文件如下，</p>
-<!-- lang: cpp -->
-<p>#import <foundation foundation.h=""><br>@interface Person : NSObject</foundation></p>
-<p>@property (nonatomic, strong) NSString *name;<br>@property (nonatomic, assign) int age;</p>
-<p>@end</p>
-<p>main.m文件如下</p>
-<!-- lang: cpp -->
-<p>int main(int argc, const char * argv[])<br>{</p>
-<p>Person *p = [[Person alloc] init];</p>
-<p>NSString *str = @”zhangsan”;</p>
-<p>p.name = str;<br>// p.name 等价于<br>[p setName:str];</p>
-<p>p.age = 20;</p>
-<p>return 0;<br>}</p>
-<p>然后我们打开终端，在命令行找到cd到文件目录，然后中输入：</p>
-<p>clang -rewrite-objc main.m<br>命令可以将main.m编译成C++的代码，改成不同的文件名，就会生成不同的c++代码<br>这是就生成了main.cpp这个c++文件，打开文件代码<br>查看该main.cpp最底下的main函数，<br>这样我们就可以看到底层具体实现的方式！</p>
-<p>这时，我们就需要知道这些方法：<br>objc_msgSend 可以给对象发送消息<br>objc_getClass(“Person”) 可以获取到指定名称的对象<br>sel_registerName(“alloc”) 可以调用到对象的方法</p>
-<p>通过查看，c++代码，我们得出结论：<br>使用objc_msgSend函数，给objc_getClass函数实例化的对象发送sel_registerName获取到的方法<br>这么一个消息<br>代码是给人看的，顺带让机器实现功能。日常的程序开发过程中，要少用runtime，</p>
-<p>那什么时候会使用runtime呢？<br>runtime应用的时机：<br>1&gt; 当需要非常高的性能开发时，使用runtime，注释：oc的代码已经无法满足性能需求<br>2&gt; 当我们对系统内部的实现很好奇的时候，可以用clang反编译成c++去看底层的实现机制！</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-Java关键字" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/30/Java关键字/" class="article-date">
-  	<time datetime="2015-09-30T02:45:47.000Z" itemprop="datePublished">2015-09-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/30/Java关键字/">Java关键字</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Java关键字及其作用<br>一、 关键字总览:<br>访问控制</p>
-<p>private</p>
-<p>protected</p>
-<p>public</p>
-<p>类,方法和变量修饰符</p>
-<p>abstract</p>
-<p>class</p>
-<p>extends</p>
-<p>final</p>
-<p>implements</p>
-<p>interface</p>
-<p>native</p>
-<p>new</p>
-<p>static</p>
-<p>strictfp</p>
-<p>synchronized</p>
-<p>transient</p>
-<p>volatile</p>
-<p>程序控制</p>
-<p>break</p>
-<p>continue</p>
-<p>return</p>
-<p>do</p>
-<p>while</p>
-<p>if</p>
-<p>else</p>
-<p>for</p>
-<p>instanceof</p>
-<p>switch</p>
-<p>case</p>
-<p>default</p>
-<p>错误处理</p>
-<p>try</p>
-<p>cathc</p>
-<p>throw</p>
-<p>throws</p>
-<p>包相关</p>
-<p>import</p>
-<p>package</p>
-<p>基本类型</p>
-<p>boolean</p>
-<p>byte</p>
-<p>char</p>
-<p>double</p>
-<p>float</p>
-<p>int</p>
-<p>long</p>
-<p>short</p>
-<p>null</p>
-<p>true</p>
-<p>false</p>
-<p>变量引用</p>
-<p>super</p>
-<p>this</p>
-<p>void</p>
-<p>保留字</p>
-<p>goto</p>
-<p>const</p>
-<p>二、 详细解释</p>
-<ol>
-<li>访问控制<br>1) private 私有的<br>private 关键字是访问控制修饰符，可以应用于类、方法或字段（在类中声明的变量）。 只能在声明 private（内部）类、方法或字段的类中引用这些类、方法或字段。在类的外部或者对于子类而言，它们是不可见的。 所有类成员的默认访问范围都是 package 访问，也就是说，除非存在特定的访问控制修饰符，否则，可以从同一个包中的任何类访问类成员。
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/30/Java关键字/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-Objective-C 底层分析" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/25/Objective-C 底层分析/" class="article-date">
-  	<time datetime="2015-09-25T10:49:03.000Z" itemprop="datePublished">2015-09-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/25/Objective-C 底层分析/">Objective-C 底层分析</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>过去的几年中涌现了大量的Objective-C开发者。有些是从动态语言转过来的，比如Ruby或Python，有些是从强类型语言转过来的，如 Java或C#，当然也有直接以Objective-C作为入门语言的。也就是说有很大一部分开发者都没有使用Objective-C太长时间。当你接触 一门新语言时，更多地会关注基础知识，如语法和特性等。但通常有一些更高级的，更鲜为人知又有强大功能的特性等待你去开拓。</p>
-<p>这篇文章主要是来领略下Objective-C的运行时(runtime)，同时解释是什么让Objective-C如此动态，然后感受下这些动态化的技术细节。希望这回让你对Objective-C和Cocoa是如何运行的有更好的了解。<br>The Runtime<br>Objective-C是一门简单的语言，95%是C。只是在语言层面上加了些关键字和语法。真正让Objective-C如此强大的是它的运行时。它很小但却很强大。它的核心是消息分发。<br>Messages<br>如果你是从动态语言如Ruby或Python转过来的，可能知道什么是消息，可以直接跳过进入下一节。那些从其他语言转过来的，继续看。<br>执行一个方法，有些语言，编译器会执行一些额外的优化和错误检查，因为调用关系很直接也很明显。但对于消息分发来说，就不那么明显了。在发消息前不 必知道某个对象是否能够处理消息。你把消息发给它，它可能会处理，也可能转给其他的Object来处理。一个消息不必对应一个方法，一个对象可能实现一个 方法来处理多条消息。<br>在Objective-C中，消息是通过objc_msgSend()这个runtime方法及相近的方法来实现的。这个方法需要一个target，selector，还有一些参数。理论上来说，编译器只是把消息分发变成objc_msgSend来执行。比如下面这两行代码是等价的。<br>    [array insertObject:foo atIndex:5];<br>    objc_msgSend(array, @selector(insertObject:atIndex:), foo, 5);Objects, Classes, MetaClasses<br>大多数面向对象的语言里有 classes 和 objects 的概念。Objects通过Classes生成。但是在Objective-C中，classes本身也是objects(译者注：这点跟python很 像)，也可以处理消息，这也是为什么会有类方法和实例方法。具体来说，Objective-C中的Object是一个结构体(struct)，第一个成员 是isa，指向自己的class。这是在objc/objc.h中定义的。<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/25/Objective-C 底层分析/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-runtime使用分析" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/25/runtime使用分析/" class="article-date">
-  	<time datetime="2015-09-25T10:07:45.000Z" itemprop="datePublished">2015-09-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/25/runtime使用分析/">runtime 使用分析</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Quick_Start">Quick Start</h2><p>我们前面已经讲过一篇runtime 原理，现在这篇文章主要介绍的是runtime是什么以及怎么用！希望对读者有所帮助！</p>
-<p>首先，第一个问题，<br>1》runtime实现的机制是什么,怎么用，一般用于干嘛？<br>这个问题我就不跟大家绕弯子了，直接告诉大家，<br>runtime是一套比较底层的纯C语言API, 属于1个C语言库, 包含了很多底层的C语言API。<br>在我们平时编写的OC代码中, 程序运行过程时, 其实最终都是转成了runtime的C语言代码, runtime算是OC的幕后工作者<br>比如说，下面一个创建对象的方法中，<br>举例:<br>OC :<br>[[MJPerson alloc] init]<br>runtime :<br>objc_msgSend(objc_msgSend(“MJPerson” , “alloc”), “init”)</p>
-<p>第二个问题<br>runtime 用来干什么呢？？用在那些地方呢？怎么用呢？<br>runtime是属于OC的底层, 可以进行一些非常底层的操作(用OC是无法现实的, 不好实现)</p>
-<p>在程序运行过程中, 动态创建一个类(比如KVO的底层实现)</p>
-<p>在程序运行过程中, 动态地为某个类添加属性\方法, 修改属性值\方法</p>
-<p>遍历一个类的所有成员变量(属性)\所有方法<br>例如：我们需要对一个类的属性进行归档解档的时候属性特别的多，这时候，我们就会写很多对应的代码，但是如果使用了runtime就可以动态设置！<br>例如，PYPerson.h的文件如下所示</p>
-<p>import<br>@interface PYPerson : NSObject<br>@property (nonatomic, assign) int age;<br>@property (nonatomic, assign) int height;<br>@property (nonatomic, copy) NSString *name;<br>@property (nonatomic, assign) int age2;<br>@property (nonatomic, assign) int height2;<br>@property (nonatomic, assign) int age3;<br>@property (nonatomic, assign) int height3;<br>@property (nonatomic, assign) int age4;<br>@property (nonatomic, assign) int height4;</p>
-<p>@end</p>
-<p>而PYPerson.m实现文件的内容如下</p>
-<!-- lang: cpp -->
-<p>#import “PYPerson.h”<br>import<br>@implementation PYPerson</p>
-<p>(void)encodeWithCoder:(NSCoder )encoder<br>{<br>unsigned int count = 0;<br>Ivar ivars = class_copyIvarList([PYPerson class], &amp;count);</p>
-<p>for (int i = 0; i&lt;count; i++) {</p>
-<p>// 取出i位置对应的成员变量<br>Ivar ivar = ivars[i];</p>
-<p>// 查看成员变量<br>const char *name = ivar_getName(ivar);</p>
-<p>// 归档<br>NSString *key = [NSString stringWithUTF8String:name];<br>id value = [self valueForKey:key];<br>[encoder encodeObject:value forKey:key];<br>}</p>
-<p>free(ivars);<br>}</p>
-<p>(id)initWithCoder:(NSCoder *)decoder<br>{<br>if (self = [super init]) {</p>
-<p>unsigned int count = 0;<br>Ivar *ivars = class_copyIvarList([PYPerson class], &amp;count);</p>
-<p>for (int i = 0; i&lt;count; i++) {<br>    // 取出i位置对应的成员变量<br>    Ivar ivar = ivars[i];</p>
-<pre><code><span class="comment">// 查看成员变量</span>
-<span class="keyword">const</span> <span class="keyword">char</span> *name = ivar_getName(ivar);
-
-<span class="comment">// 归档</span>
-<span class="built_in">NSString</span> *key = [<span class="built_in">NSString</span> stringWithUTF8String:name];
-<span class="keyword">id</span> value = [decoder decodeObjectForKey:key];
-
-<span class="comment">// 设置到成员变量身上</span>
-[<span class="keyword">self</span> setValue:value forKey:key];
-</code></pre><p>}</p>
-<p>free(ivars);<br>}<br>return self;<br>}</p>
-<p>@end</p>
-<p>这样我们可以看到归档和解档的案例其实是runtime写下的</p>
-<p>学习，runtime机制首先要了解下面几个问题<br>1相关的头文件和函数<br>1&gt; 头文件</p>
-<p>利用头文件，我们可以查看到runtime中的各个方法！<br>2&gt; 相关应用</p>
-<p>NSCoding(归档和解档, 利用runtime遍历模型对象的所有属性)<br>字典 –&gt; 模型 (利用runtime遍历模型对象的所有属性, 根据属性名从字典中取出对应的值, 设置到模型的属性上)<br>KVO(利用runtime动态产生一个类)<br>用于封装框架(想怎么改就怎么改)<br>这就是我们runtime机制的只要运用方向<br>3&gt; 相关函数</p>
-<p>objc_msgSend : 给对象发送消息<br>class_copyMethodList : 遍历某个类所有的方法<br>class<em>copyIvarList : 遍历某个类所有的成员变量<br>class</em>…..<br>这是我们学习runtime必须知道的函数！<br>4.必备常识<br>1&gt; Ivar : 成员变量<br>2&gt; Method : 成员方法<br>从上面例子中我们看到我们定义的成员变量，如果要是动态创建方法，可以使用Method，</p>
-<p>也许，看到这里，你是否对runtime有了更深入的了解呢？在这里，希望我们大家相互交流！有什么错误之处，还请指正。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-  
 </div>
       <footer id="footer">
   <div class="outer">
@@ -735,8 +362,8 @@
 		fancybox: true,
 		mathjax: true,
 		animate: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
