@@ -192,6 +192,128 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-关于 self 和 super 在oc 中 的疑惑 与 分析" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/15/关于 self 和 super 在oc 中 的疑惑 与 分析/" class="article-date">
+  	<time datetime="2015-10-15T08:17:02.000Z" itemprop="datePublished">2015-10-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/15/关于 self 和 super 在oc 中 的疑惑 与 分析/">关于 self 和 super 在oc 中 的疑惑 与 分析</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Quick_Start">Quick Start</h2><p>这个问题貌似很初级，但很容易让人忽略，me too 。直到在一次面试时被问到，稀里糊涂的回答了下。实在惭愧，</p>
+<p>面试一定都是很注重 基础的，不管高级还是初级。</p>
+<p>虽然基础好跟基础不好都可以写 代码，网上那么多资料。  区分高低也就是研究的深度和广度。</p>
+<p>开始我们的问题：</p>
+<p>复制代码<br>@implementation Son : Father</p>
+<ul>
+<li><p>(id)init<br>{<br>  self = [super init];<br>  if (self)<br>  {</p>
+<p>  }<br>  return self;<br>}<br>复制代码<br>这段代码 估计很多人都 写烂了，就算没写烂，xcode 自动生成的 我们也看吐了。 好吧，来说说原来，</p>
+</li>
+</ul>
+<p>上来就是 ： 这个其实就是 在子类实现初始化前 调用父类的init实现.</p>
+<p>这跟没说一样，稀里糊涂的。</p>
+<p>首先这个问题，要了解  1, self  是什么 ；super 是什么。2,[ super init] 都做了什么。3,为什么要 self =  [super init];</p>
+<p>一个一个来：</p>
+<p>1，self  是什么 ，super 是什么</p>
+<blockquote>
+<p>在动态方法中，self代表着”对象”</p>
+<p>在静态方法中，self代表着”类”</p>
+<p>万变不离其宗，记住一句话就行了：self代表着当前方法的调用者</p>
+</blockquote>
+<p>self 和 super 是oc 提供的 两个保留字。 但有根本区别，</p>
+<pre><code><span class="keyword">self</span>是类的隐藏的参数变量,指向当前调用方法的对象（类也是对象，类对象）,另一个隐藏参数是_cmd，代表当前类方法的selector。
+
+<span class="keyword">super</span>并不是隐藏的参数,它只是一个<span class="string">"编译器指示符"</span>
+</code></pre><p>2, [ super init]     都做了什么</p>
+<p>发送消息时</p>
+<p>复制代码<br>Class  A<br>-reposition<br>{<br>     …<br>     [self setOrigin:someX :someY];<br>     …<br>}<br>复制代码<br> A  a= [a .. init];</p>
+<p>[a  reposition];   方法体中  编译器将</p>
+<p>  [self setOrigin:someX :someY];<br> 其转换为</p>
+<p>objc_msgSend(id self，SEL _cmd, …) 。self -&gt; a<br> 此时 self 指代a 对象，方法从a 对应 类结构的 方法调度表中开始寻找，如果找不到，延继承链往 父类中寻找 。</p>
+<p>同样如果 reposition 是类方法， self 指代 A 类对象。</p>
+<p>复制代码<br>Class  A<br>-reposition<br>{<br>     …<br>     [super setOrigin:someX :someY];<br>     …<br>}<br>复制代码<br>[a  reposition];   方法体中编译器将</p>
+<p>[super setOrigin:someX :someY];<br>其转换为</p>
+<p>id objc_msgSendSuper(struct objc_super *super, SEL op, …)</p>
+<p> 第一个参数是个objc_super的结构体，第二个参数还是类似上面的类方法的selector，先看下objc_super这个结构体是什么东西：</p>
+<p>struct objc_super {<br>    id receiver;<br>   Class superClass;<br>};</p>
+<pre><code>可以看到这个结构体包含了两个成员，一个是 receiver，这个类似上面 objc_msgSend 的第一个参数 receiver，第二个成员是记录写 <span class="keyword">super</span> 这个类的父类是什么，拿上面的代码为例，当编译器遇到 A 里
+</code></pre><p>[super setOrigin:someX :someY]<br> 时，开始做这几个事：</p>
+<pre><code>&gt;构建 objc_super 的结构体，此时这个结构体的第一个成员变量 receiver 就是 <span class="literal">a</span>，和 self 相同。而第二个成员变量 superClass 就是指类 <span class="literal">A</span>的 superClass。
+
+&gt;调用 objc_msgSendSuper 的方法，将这个结构体和
+</code></pre><p>setOrigin<br> 的 sel 传递过去。函数里面在做的事情类似这样：从 objc_super 结构体指向的 superClass 的方法列表开始找 setOrigin 的 selector，找到后再以 objc_super-&gt;receiver 去调用这个 selector，可能也会使用 objc_msgSend 这个函数，不过此时的第一个参数 theReceiver 就是 objc_super-&gt;receiver，第二个参数是从 objc_super-&gt;superClass 中找到的 selector</p>
+<p>3,为什么要 self =  [super init];</p>
+<p>符合oc 继承类 初始化规范 super 同样也是这样，  [super init]  去self 的super 中调用init     super 调用 superSuper 的init 。直到根类 NSObject 中的init ,</p>
+<p>根类中init 负责初始化 内存区域  向里面添加 一些必要的属性，返回内存指针，  这样 延着继承链 初始化的内存指针 被从上 到 下 传递，在不同的子类中向块内存添加 子类必要的属性，直到 我们的 A 类中 得到内存指针，赋值给slef 参数， 在if (slef){//添加A 的属性 }</p>
+<p>下面来看看这个：</p>
+<p>复制代码<br>@implementation Son : Father</p>
+<ul>
+<li>(id)init<br>{<br>  self = [super init];<br>  if (self)<br>  {<pre><code><span class="constant">NSLog</span>(@<span class="string">"%@"</span>, <span class="constant">NSStringFromClass</span>([<span class="keyword">self</span> <span class="class"><span class="keyword">class</span>]));</span>
+<span class="constant">NSLog</span>(@<span class="string">"%@"</span>, <span class="constant">NSStringFromClass</span>([<span class="keyword">super</span> <span class="class"><span class="keyword">class</span>]));</span>
+</code></pre>  }<br>  return self;<br>}<br>@end<br>复制代码</li>
+</ul>
+<p>应该不难分析出  打印结果：</p>
+<p>Son<br>Son</p>
+<p>当 发送 class 消息 时不管是 self  还是 super 其消息主体依然是  self ,也就是说 self 和 super 指向的 是同一个对象。只是 查找方法的位置 区别，一个从本类，一个从本类的超类。<br>一般情况下  class 方法 只有在 根类 NSObject 中定义，极少情况有子类重写 class 方法，<br>所以  [slef  class] 和 [super class] 都是在 根类中 找方法实现， 消息接收主体 又都是 a<br>如果重写可能会不一样。<br>自然都打印出  Son </p>
+<p>在来一个例子：<br>复制代码</p>
+<p>#import <foundation foundation.h=""></foundation></p>
+<p>@interface EngineSuper : NSObject<br>-(void)printCurrentClass;</p>
+<p>@end</p>
+<p>#import “EngineSuper.h”</p>
+<p>@implementation EngineSuper<br>-(void)printCurrentClass{</p>
+<pre><code><span class="constant">NSLog</span>(@<span class="string">"=EngineSuper=======%@"</span>,[<span class="keyword">self</span> <span class="class"><span class="keyword">class</span>]);</span>
+</code></pre><p>}<br>@end</p>
+<p>@interface Engine : EngineSuper<br>-(void)printSupClass;<br>@end</p>
+<p>@implementation Engine</p>
+<p>-(void)printSupClass{<br>   [super printCurrentClass];<br>}</p>
+<p>//调用：<br>Engine *engine = [[Engine alloc]init];<br>[engine  printCurrentClass];//直接调用父类 方法，engine没重载 它</p>
+<p>[engine  printSupClass];//间接调用父类方法，<br>复制代码</p>
+<p>打印当然都是  ：</p>
+<p>Engine<br>Engine</p>
+<p>方法体中 self 始终指代 方法的接收者 及对象  engine。，<br> 换成   NSLog(@”=EngineSuper=======%@”,[super class]); 结果也是一样的。</p>
+<p>super 就是个障眼法 发，编译器符号， 它可以替换成 [slef class],只不过 方法是从 self 的超类开始 寻找。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-二级指针分析" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
