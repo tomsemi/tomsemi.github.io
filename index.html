@@ -192,6 +192,63 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-iOS crash log 分析方法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/23/iOS crash log 分析方法/" class="article-date">
+  	<time datetime="2015-10-23T05:02:42.000Z" itemprop="datePublished">2015-10-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/23/iOS crash log 分析方法/">iOS crash log 分析方法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Quick_Start">Quick Start</h2><p>当发布到iPhone上的应用程序Crash之后，iPhone会自动生成一个Crash Log（<em>.crash），这个文件包含了一些有用的调试信息，但对于堆栈，它只记录的函数地址，而无法显示函数名。函数名保存在一个叫dSYM的二进制文件中，即一个调试符号表文件。要解析出Crash log中的函数名称，必须要这个dSYM文件和可执行程序（即那个</em>.app包）。而且这三者必须严格对应，也就是说他们包含的UUID号必须一样。</p>
+<p>可以用MAC自带的dwarfdump程序来检查UUID：</p>
+<p>使用dwarfdump检查app，看哪个app是上面那个UUID。命令行格式：<br>dwarfdump –uuid YourApp.app/YourApp<br>用dwarfdump检查dSYM文件是否是上面的UUID。命令行格式：<br>dwarfdump –uuid YourApp.app.dSYM</p>
+<p>这两个UUID必须一样，而且必须跟Crash Log里面的UUID一致。打开Crash Log文件，在”Binary Images：”段中，YourApp后面的尖括号内的字符串就是UUID了。<br>crash log uuid : armv7  <1dd5eb047491310f88cb7b1d7f61275c> /var/mobile/Applications/581404D9-FF06-455F-8251-846D41D18B40/</1dd5eb047491310f88cb7b1d7f61275c></p>
+<p>有了这三样东西，就可以用Xcode的Organizer来查看包含了符号信息的Crash log了，这个过程也称为symbolication。方法是：</p>
+<p>先将app和dYSM两个文件拷贝到用户目录下的任意子目录中（我试过任意两层目录），然后在Organizer中选中“Device Logs”，接下来将Crash log文件拖动到这个窗口中，Organizer将开始寻找对应的文件，然后进行转换，转换后保存在它自己的一个目录下（在窗口中的log上右键点击选“Reveal Log inFinder”可以看到转好的文件）。</p>
+<p>但随之而来的问题是，我们收到的程序崩溃调试信息多半是汇编语言一样的堆栈代码，同时这些信息并不是在我们debug的时候产生，所以看到这一串crash log的天书，常常无可奈何。Xcode很好的解决了这一问题，它所提供的Orgainzer分析器加上symbolicatecrash，可以分析二进制文件以及源代码和crashlog之间的连接，直接找出源程序中出错的代码行。方法网上到处是，本文不讨论。<br>但是如果使用symbolicatecrash无法定位到出错的代码行的话，怎么整呢？有一个办法，如下：<br>首先查看crash log中的崩溃线程，假如是这样的：<br>Thread 0 Crashed:<br>0   libobjc.A.dylib               0x00003ec0 objc_msgSend + 24<br>1   MyApp               0x000036d2 0×1000 + 9938<br>我们得到了用户发生崩溃情况的内存地址：0x000036d2<br>然后回到我们应用程序的build目录，目录下一定要包含MyApp.app 和MyApp.app.dSYM两个文件。<br>在控制台使用dwarfdump命令，解析出内存地址，如：<br>dwarfdump –lookup 0x000036d2 –arch armv6 MyApp.app.dSYM</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-关于 self 和 super 在oc 中 的疑惑 与 分析" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">

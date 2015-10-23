@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>iOS crash log 分析方法 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Quick Start当发布到iPhone上的应用程序Crash之后，iPhone会自动生成一个Crash Log（.crash），这个文件包含了一些有用的调试信息，但对于堆栈，它只记录的函数地址，而无法显示函数名。函数名保存在一个叫dSYM的二进制文件中，即一个调试符号表文件。要解析出Crash log中的函数名称，必须要这个dSYM文件和可执行程序（即那个.app包）。而且这三者必须严格对应，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS crash log 分析方法">
+<meta property="og:url" content="http://yoursite.com/2015/10/23/iOS crash log 分析方法/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Quick Start当发布到iPhone上的应用程序Crash之后，iPhone会自动生成一个Crash Log（.crash），这个文件包含了一些有用的调试信息，但对于堆栈，它只记录的函数地址，而无法显示函数名。函数名保存在一个叫dSYM的二进制文件中，即一个调试符号表文件。要解析出Crash log中的函数名称，必须要这个dSYM文件和可执行程序（即那个.app包）。而且这三者必须严格对应，">
+<meta property="og:updated_time" content="2015-10-23T05:03:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS crash log 分析方法">
+<meta name="twitter:description" content="Quick Start当发布到iPhone上的应用程序Crash之后，iPhone会自动生成一个Crash Log（.crash），这个文件包含了一些有用的调试信息，但对于堆栈，它只记录的函数地址，而无法显示函数名。函数名保存在一个叫dSYM的二进制文件中，即一个调试符号表文件。要解析出Crash log中的函数名称，必须要这个dSYM文件和可执行程序（即那个.app包）。而且这三者必须严格对应，">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://i11.tietuku.com/ed31ef393ba972fe.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">echo Ge</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的烟火…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">echo Ge</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://i11.tietuku.com/ed31ef393ba972fe.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">echo Ge</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-iOS crash log 分析方法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/23/iOS crash log 分析方法/" class="article-date">
+  	<time datetime="2015-10-23T05:02:42.000Z" itemprop="datePublished">2015-10-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS crash log 分析方法
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Quick_Start">Quick Start</h2><p>当发布到iPhone上的应用程序Crash之后，iPhone会自动生成一个Crash Log（<em>.crash），这个文件包含了一些有用的调试信息，但对于堆栈，它只记录的函数地址，而无法显示函数名。函数名保存在一个叫dSYM的二进制文件中，即一个调试符号表文件。要解析出Crash log中的函数名称，必须要这个dSYM文件和可执行程序（即那个</em>.app包）。而且这三者必须严格对应，也就是说他们包含的UUID号必须一样。</p>
+<p>可以用MAC自带的dwarfdump程序来检查UUID：</p>
+<p>使用dwarfdump检查app，看哪个app是上面那个UUID。命令行格式：<br>dwarfdump –uuid YourApp.app/YourApp<br>用dwarfdump检查dSYM文件是否是上面的UUID。命令行格式：<br>dwarfdump –uuid YourApp.app.dSYM</p>
+<p>这两个UUID必须一样，而且必须跟Crash Log里面的UUID一致。打开Crash Log文件，在”Binary Images：”段中，YourApp后面的尖括号内的字符串就是UUID了。<br>crash log uuid : armv7  <1dd5eb047491310f88cb7b1d7f61275c> /var/mobile/Applications/581404D9-FF06-455F-8251-846D41D18B40/</1dd5eb047491310f88cb7b1d7f61275c></p>
+<p>有了这三样东西，就可以用Xcode的Organizer来查看包含了符号信息的Crash log了，这个过程也称为symbolication。方法是：</p>
+<p>先将app和dYSM两个文件拷贝到用户目录下的任意子目录中（我试过任意两层目录），然后在Organizer中选中“Device Logs”，接下来将Crash log文件拖动到这个窗口中，Organizer将开始寻找对应的文件，然后进行转换，转换后保存在它自己的一个目录下（在窗口中的log上右键点击选“Reveal Log inFinder”可以看到转好的文件）。</p>
+<p>但随之而来的问题是，我们收到的程序崩溃调试信息多半是汇编语言一样的堆栈代码，同时这些信息并不是在我们debug的时候产生，所以看到这一串crash log的天书，常常无可奈何。Xcode很好的解决了这一问题，它所提供的Orgainzer分析器加上symbolicatecrash，可以分析二进制文件以及源代码和crashlog之间的连接，直接找出源程序中出错的代码行。方法网上到处是，本文不讨论。<br>但是如果使用symbolicatecrash无法定位到出错的代码行的话，怎么整呢？有一个办法，如下：<br>首先查看crash log中的崩溃线程，假如是这样的：<br>Thread 0 Crashed:<br>0   libobjc.A.dylib               0x00003ec0 objc_msgSend + 24<br>1   MyApp               0x000036d2 0×1000 + 9938<br>我们得到了用户发生崩溃情况的内存地址：0x000036d2<br>然后回到我们应用程序的build目录，目录下一定要包含MyApp.app 和MyApp.app.dSYM两个文件。<br>在控制台使用dwarfdump命令，解析出内存地址，如：<br>dwarfdump –lookup 0x000036d2 –arch armv6 MyApp.app.dSYM</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/10/15/关于 self 和 super 在oc 中 的疑惑 与 分析/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于 self 和 super 在oc 中 的疑惑 与 分析</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="iOS crash log 分析方法" data-title="iOS crash log 分析方法" data-url="http://yoursite.com/2015/10/23/iOS crash log 分析方法/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 echo Ge
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
