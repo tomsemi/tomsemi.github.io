@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>objective-c 与java比较 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Quick Start1、Cocoa是什么？Cocoa是使用OC语言编写的工具包，里面有大量的类库、结构体，说白了其实就相当于java中的标准API、C++中的标准库。OC中没有命名空间的概念，所以使用加前缀来防止命名冲突，因此你会看到大量的以NS 为前缀的类名、结构体、枚举等。
+2、Cocoa框架由Foundation Kit、App Kit两部分组成，前者是基础工具库，后者主要是UI库、高级对">
+<meta property="og:type" content="article">
+<meta property="og:title" content="objective-c 与java比较">
+<meta property="og:url" content="http://yoursite.com/2015/10/29/objective-c与java比较/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Quick Start1、Cocoa是什么？Cocoa是使用OC语言编写的工具包，里面有大量的类库、结构体，说白了其实就相当于java中的标准API、C++中的标准库。OC中没有命名空间的概念，所以使用加前缀来防止命名冲突，因此你会看到大量的以NS 为前缀的类名、结构体、枚举等。
+2、Cocoa框架由Foundation Kit、App Kit两部分组成，前者是基础工具库，后者主要是UI库、高级对">
+<meta property="og:updated_time" content="2014-01-12T01:58:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="objective-c 与java比较">
+<meta name="twitter:description" content="Quick Start1、Cocoa是什么？Cocoa是使用OC语言编写的工具包，里面有大量的类库、结构体，说白了其实就相当于java中的标准API、C++中的标准库。OC中没有命名空间的概念，所以使用加前缀来防止命名冲突，因此你会看到大量的以NS 为前缀的类名、结构体、枚举等。
+2、Cocoa框架由Foundation Kit、App Kit两部分组成，前者是基础工具库，后者主要是UI库、高级对">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://i11.tietuku.com/ed31ef393ba972fe.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">echo Ge</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的烟火…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">echo Ge</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://i11.tietuku.com/ed31ef393ba972fe.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">echo Ge</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-objective-c与java比较" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/29/objective-c与java比较/" class="article-date">
+  	<time datetime="2015-10-29T03:03:15.000Z" itemprop="datePublished">2015-10-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      objective-c 与java比较
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Quick_Start">Quick Start</h2><p>1、Cocoa是什么？Cocoa是使用OC语言编写的工具包，里面有大量的类库、结构体，说白了其实就相当于java中的标准API、C++中的标准库。OC中没有命名空间的概念，所以使用加前缀来防止命名冲突，因此你会看到大量的以NS 为前缀的类名、结构体、枚举等。</p>
+<p>2、Cocoa框架由Foundation Kit、App Kit两部分组成，前者是基础工具库，后者主要是UI库、高级对象等。</p>
+<p>3、static 标识的类变量定义在接口的外面，类变量只能本类访问，除非提供类方法给外部访问这个类变量。</p>
+<p>4、@语法是OC特有的一种语法，C是没有的。</p>
+<p>5、OC中只有类的成员变量才有访问权限控制，@public、@protected、@private，默认是@protected，类变量、类方法、成员方法是没有访问修饰符的，所有的方法都是public的，所有的类变量都是私有的。</p>
+<p>6、OC中的类方法只能类调用，如果使用对象调用就会报错，而java这只是一个警告而已。</p>
+<p>7、OC中定义类的@interface和java中的interface不是一回事，OC的@protocol和java中的interface才是一码事。@interface跟java和C++ class关键字差不多，在OC和C++中，都习惯将类定义写在头文件里，而java却根本没有头文件的概念，至于为什么有这样的差别，我想是为了OC和C++编译器方便，大多数时候编译器只需要知道头文件类的定义就知道这个类有哪些属性和方法了。</p>
+<p>8、get为前缀的方法在OC中有特殊的意义，所以尽量使用成员变量名称来作为getter方法的函数名。</p>
+<p>9、OC是动态语言，所以即便是@interface中没有定义的方法在.m文件中实现了也是OK的，一般我们都是给别人提供头文件，这种情况就相当于把方法变相的私有化了，对于我这种喜欢在写代码过程中随时加方法但又不想动头文件的人来说还是比较爽的。</p>
+<p>10、在OC中所有对象的存取都是用指针，C++中还有引用，OC中没有，我宁愿你强迫我使用一种方法，也不愿你提供给我两种方法我却不知道使用哪一种方法的好。</p>
+<p>11、OC的方法定义和调用算是一大“特色”：<br>方法的定义：-(返回类型) 方法名:(参数1类型)参数1变量 参数2标签:(参数2类型)参数2变量…<br>[类或者实例的指针 方法名: 参数1 标签2: 参数2… …]，<br>为了好看，第一个参数一般不加标签名，当然，标签名都可以隐藏的，但不建议这样做，因为当你接手了一个离职的人程序，其中的JAVA 程序调用了一个有五个甚至更多的参数的方法，但是你手里没有这个方法的API，那么你很难猜得出来这五个参数到底都干什么用的，但是Objective-C调用的时候，每个参数前面都必须有方法的标签名，这样你便能很容易的从标签名看出这个参数是什么意思。</p>
+<p>12、调用类方法：<br>[Fraction t];<br>[[Fraction class] t];<br>Class clazz=[Fraction class];[clazz t];<br>class 来自于NSObject，相当于JAVA 中的getClass()方法，也就是获取这个类的Class 对象，<br>clazz 前面没有*，这是因为Class 已经是一个指针。另外这种嵌套调用的方式，你也要习<br>惯，这就和JAVA 中的A.b().c()没有什么区别。<br>获取Class 有如下几种方法：<br>[类或者对象 class]<br>[类或者对象 superclasss]<br>NSClassFromString(类名的字符串形式)<br>你也可以通过如下的函数把Class 转换为字符串形式：<br>NSStringFromClass(Class)</p>
+<p>13、OC中自定义类最好显示继承NSObject，可以获得alloc、init、release等方法。</p>
+<p>14、OC中使用nil表示null，但跟java中的null还是有区别的，java中调用null的方法，会报臭名昭著的空指针异常，而OC不会，所以在OC你不必再为空指针而烦恼。</p>
+<p>15、Cocoa中提供的很多函数和java中的api有很大的不一样，java是纯面向对象的，所有的方法都必须在类中定义，但OC是兼容C语言的，所以C中的面向过程思想在OC中也是行得通的，因此Cocoa中很多东西都不是对象，而是C语言的函数、结构体，比如NSLog()。</p>
+<p>16、对象的初始化<br>前面我们看到实例化对象最多的方法是：Fraction *frac=[[Fraction alloc] init];<br>这跟java不一样，java对象创建只需要new一下，同时调用构造方法（实际上虚拟机层面分为两个步骤：new对象，执行<init>方法（包含构造方法）），但是OC中分为两步：分配内存（同时给变量赋初值）、初始化。<br>（1）、alloc 是从NSObject 继承而来的类方法，用于给对象分配存储空间，所有的成员变量在此时对确定了自己的内存位置，并被赋初值，整数类型为0，浮点数为0.0，BOOL 为NO，对象类型为nil，alloc 方法返回对象的指针。<br>（2）、init这个方法是从NSObject继承而来的，你可以覆盖它，当然init不是构造方法，只是一个普通方法而已，你甚至可以换成其他方法，只不过我们习惯在方法名前缀加上init。<br>还记得java中的构造方法没有返回值吧，所以为了达到java这种效果：Test t = new Test(2);OC中需要你手动在普通方法（相当于构造方法）中return self。</init></p>
+<p>17、NSObject中的description方法相当于java中Object的toString方法，，用于获取对象的字符串表示。唯一不同的是OC中需要使用格式化字符串%@，才会触发description被调用：<br>Fraction *frac=[[Fraction alloc] init];<br>NSLog(@”%@”,frac);</p>
+<p>18、Objective-C 的异常都继承自NSException，当然NSException 本身也继承自NSObject。使用下面的语句块进行异常捕获：<br>@try {<br>      &lt;#statements#&gt;<br>  }<br>  @catch (NSException *exception) {<br>      &lt;#handler#&gt;<br>  }<br>  @finally {<br>      &lt;#statements#&gt;<br>  }<br>总体来说，OC中的异常体系和java中的异常体系差不多，唯一的差别就是java中有业务异常，意思就是说你必须捕获他，如果不捕获就会出现编译错误，OC中的异常基本上都属于java中的运行时异常，如果你没有捕获，发生了异常程序就会崩溃，在一些循环批任务中尤其要注意。</p>
+<p>18、OC中还有一个特色那就是他的弱类型id，他可以表示任何对象，实际上应该是利用了指针地址的通用性，由于OC中操作对象都必须是指针，而指针本身又是一串地址，所以通过指针可以指向一切不同的对象。</p>
+<p>19、继承（感觉和java差不多啊）</p>
+<p>20、反射（这个和异常一样，感觉跟java也很像）</p>
+<p>21、选择器（其实就是C中的函数指针，以及java中的Method类）</p>
+<p>22、类别（Category），扩充类的功能，但不可以声明新的成员变量。<br>类别的应用比较广泛，譬如：第三方的Objective-C 库RegexKitLite 就是对NSString、NSMutableString 做的类别，为Objective-C 的字符类型增加了正则表达式的功能。</p>
+<p>23、协议@protocol，这个就是前面说的，相当于java中的interface，思想都是一种约定、规范，只是具体语法不一样罢了。</p>
+<p>24、终于到了内存管理了，擦，没怎么看懂，要好好找个专题弄懂。</p>
+<p>25、字符串<br>-(BOOL) isEqualToString: (NSString<em>) s<br>比较两个字符串是否相等，与JAVA 一致的地方是==比较指针，比较对象是否相同要用到equal 方法。<br>-(NSMutableString</em>) appendString: (NSString*) s<br>这与JAVA 的StringBuffer 的append 没什么区别。</p>
+<p>26、数组<br>Cocoa 使用NSArray 表示数组，但是它不能存储基本数据类型、enum、struct、nil，只能存储Objective-C 的对象。<br>NSArray <em>array=[NSArray arrayWithObjects: @”One”, @”Two”, @”Three”, nil];<br>从这个类方法arrayWithObjects 的定义可以看出，它使用nil 表示数组元素结束，这也是nil 不能存储在NSArray 中的原因。<br>NSMutableArray 为长度可变的数组，相当于JAVA 中的List：<br>NSMutableArray </em>mArray=[NSMutableArray arrayWithCapacity: 10];<br>[mArray addObject: @”Apple”];//添加数组元素<br>NSEnumerator <em>e = [mArray objectEnumerator];//获取数组的迭代器，相当于JAVA 中的Iterator，reserveObjectEnumerator 用于获取反转之后的数组迭代器。与JAVA 一致的地方是你在使用迭代器时，不能对数组进行添加、删除操作。<br>for(NSString </em>ms in mArray){<br>NSLog(@”%@”,ms);<br>}<br>//for-each 快速枚举为Objective-C 2.0 的新特性，Windows 上的GNUStep 并不支持。</p>
+<p>27、字典（哈希表）<br>NSDictionary 用于存储key-value 的数据结构，与JAVA 中的Map 类似。<br>NSDictionary <em>dic=[NSDictionary dictionaryWithObjectsAndKeys: @”Apple”, @”A”, @”Google”,@”G”, nil];//dictionaryWithObjectAndKeys 后的可变参数，每两个为一个value-key，以nil 表示结束。<br>NSLog(@”%@”,[dic objectForKey: @”A”]);//按照指定的key 查询value<br>同样的有NSMutableDictionary 表示长度可变的字典。<br>NSMutableDictionary </em>mDic=[NSMutableDictionary dictionaryWithCapacity: 10];<br>[mDic setObject: @”Apple” forKey: @”A”];//添加value-key 对<br>for(id key in mDic){<br>NSLog(@”%@ : %@”,key,[mDic objectForKey: key]);<br>}<br>//快速迭代的for-each 循环</p>
+<p>28、哈希Set<br>NSSet 表示以hash 方式计算存储位置的集合，与JAVA 中的HashSet 是一致的。在NSSet 中的每个对象都有一个唯一的hash 值，重复的对象将只能保留一个。因此，这引出了Objective-C中的对象比较问题，这需要你实现从NSObject 继承而来的如下两个方法：</p>
+<ul>
+<li>(BOOL) isEqual: (id) anObject;</li>
+<li>(NSUInteger) hash;<br>这与JAVA 的对象比较没有什么区别，两个相等的对象必须有相同的hashCode，所以这两个方法必须同时实现。<br>同样的，NSMutableSet 表示长度可变的哈希Set。</li>
+</ul>
+<p>29、封装类（相当于java的包装器）<br>前面的几个容器类的对象都不能存放基本数据结构、enum、struct、nil，怎么办呢？在JAVA中我们知道所有的基本数据类型都有对应的封装类，例如：int—Integer、boolean—Boolean，使用封装类可以把基本数据类型包装为对象，而封装类本身又有方法可以返回原来的基本数据类型。Cocoa 使用NSValue 作为封装类。<br>NSRect rect=NSMakeRect(1,2,30,50);//这个是在前面提到过的一个表示矩形的结构体<br>NSValue *v=[NSValue valueWithBytes: &amp;rect objCType: @encode(NSRect)];<br>//valueWithBytes 要求传入包装数据的地址，也就是变量中存储的数据的首地址，我们依然使用C 语言的&amp;作为地址运算符，计算指针存储的首地址。<br>//objCType 要求传入用于描述数据的类型、大小的字符串，使用@encode 指令包装数据所属的类型。</p>
+<p>NSMutableArray <em>mArray=[NSMutableArray arrayWithCapacity: 3];<br>[mArray addObject: v];<br>NSRect rect2;<br>[[mArray objectAtIndex: 0] getValue: &amp;rect2];<br>//NSValue 的-(void) getValue: (void</em>) value 方法可以将NSValue 中的数据内容取出，要求传入的参数是一个指针，也就是说getValue 方法将你传入的指针指向存储的数据。<br>//一般Cocoa 中的getXXX 方法都是这个作用，这也是为什么前面的getter 方法不要以get作为方法前缀的原因。<br>对于基本数据类型，你可以使用简便的NSNumber 来封装，它是NSValue 的子类。<br>如果你想存储空值到集合类，可以使用NSNull，它使用NSNull *n =[NSNull null];的方式创建。</p>
+<p>30、日期类型<br>Cocoa 中使用NSDate 类型表示日期。</p>
+<p>31、数据缓冲区（其实就是java中的字节数组）<br>Cocoa 中使用NSData 类型来实现缓冲区，用于存储二进制的数据类型，譬如：从网络下载回来的文件等。<br>NSData 是长度不可变的数据缓冲区，还有一个NSMutableData 用来存储长度可变的数据缓冲区。</p>
+<p>32、写入和读取属性（简直就是java序列化和反序列化的翻版）<br>在iPhone 的<em>.ipa 文件中，你经常可以看到</em>.plist 文件，它保存了程序的相关属性，叫做属性列表。其实它就是NSArray、NSDictionary、NSString、NSData 持久化之后的文件。<br>这几个类型都有一个成员方法writeToFile: (NSString<em>) file atomically: BOOL 用于将自己写入到一个文件。atomically 为YES 表示文件先存储到临时文件区，如果文件保存成功，再替换掉原始文件，这样的好处是可以防止在保存文件过程中出错，但是仅适用于小文件，因为你相当于是在临时文件存储区也放了一份，再加上原始文件，就是两份文件，如果文件比较大，将会占用较多的用户的磁盘空间。<br>如果你要持久化的类型不是上述的数组、字典、缓冲区，那该怎么办呢？Objective-C 中也有和JAVA 一样的序列化、反序列化支持，使用NSCoding 协议。NSCoding 协议定义了如下两个方法：<br>-(void) encodeWithCoder: (NSCoder</em>) coder;<br>-(id) initWithCoder: (NSCoder*) decoder;<br>第一个方法相当于编码对象，第二个方法是解码回对象，也就相当于给类型定义了一个新的init 方法而已。</p>
+<p>33、对象的复制<br>对象的复制就相当于JAVA 中的clone()方法，也就是对象的深度复制，所谓深度复制就是重新分配一个存储空间，并将原对象的内容都复制过来，从这些描述可以看出，复制也会分配空间，那就是你要对复制出来的对象release，就是前面所说的alloc、new、copy 操作创建的对象，要手工release。<br>Objective-C 中的一个对象是否可以被复制，要看它的类型是否遵循NSCopying 协议，这个协议中有个复制方法-(id) copyWithZone: (*NSZone) zone 需要我们去实现。</p>
+<p>34、多线程<br>Objective-C 的多线程编程与JAVA 语言极其类似分为原始的线程操作、线程池两种，后者其实就是使用队列等机制对前者的封装。JAVA 也一样，原始的线程操作使用Thread 类，线程池的操作使用java.util.concurrent.<em>中的类库。<br>Objective-C 中NSThread 类型表示线程，NSCondition 用于执行同步操作，在功能和用法上相当于JAVA 中的java.util.concurrent.</em>包中的Lock 对象。<br>另外，Objective-C 也支持@synchronized 指令做代码同步，写法也和JAVA 中的很相似。<br>@synchronized(要加锁的对象){<br>//同步执行的代码<br>}</p>
+<p>另外比较有趣的是，如果你想更新UI 上的某一个部件，就需要在发起的新线程里调用UI 所在的主线程上的一个方法，新线程不能直接访问主线程的方法，需要在run 方法中使用如下的方法：</p>
+<ul>
+<li>(void) performSelectorOnMainThread: (SEL) aSelector withObject: (id) arg waitUntilDone: (BOOL) wait<br>如果你对java的swing熟悉的话，你应该知道在UI界，大多数更新界面的都必须在一个单线程中执行，因为如果更新界面是多线程的话会很难处理的，java swing处理的方法是更新界面的代码放在专门更新UI的线程下执行，其实这里IOS也是这么一个思想。</li>
+</ul>
+<p>Objective-C 使用NSOperation、NSOperationQueue 两个类型实现线程池的操作，NSOpertion就好比JAVA 中的Runnable，其中的main（名字有点儿奇怪）方法也就是你要执行的操作，NSOperationQueue 是一个线程池队列，你只需要把NSOperation 添加到NSOperationQueue，队列就会retain 你的NSOperation，然后执行其中的操作，直到执行完毕。队列中会有多个操作，队列会按照你添加的顺序逐个执行，也就说队列中的任务是串行的。<br>跟java一样，如果线程池可以满足你的业务需求，尽量使用线程池，而不是原始的NSThread，因为使用线程池屏蔽了许多线程自身需要处理的问题，代码也更加简洁。</p>
+<p>35、KVC 与KVO（这个话题真高级）<br>KVC 是NSKeyValueCoding 的缩写，它是Foundation Kit 中的一个NSObject 的Category，作用你可以类比JAVA 中的反射机制，就是动态访问一个对象中的属性。<br>KVC 在解析key 的字符串的时候，是会比你正常调用setter、getter 要慢的，而且编译器无法在编译器对你的方法调用做出检查（因为你的属性名都是字符串，只有运行时才会知道你有没有写错），出错的几率也会提高，所以请不要随意使用KVC，而省去setter、getter 方法。KVC 一般用于动态绑定，也就是运行时才能确定谁调用哪个方法，编译期并不确定。<br>KVO就是NSKeyValueObserving的缩写，它也是Foundation Kit中的一个NSObject的Category，KVO 基于KVC 实现，基于观察者设计模式（Observer Pattern）实现的一种通知机制，你可以类比JAVA 中的JMS，通过订阅的方式，实现了两个对象之间的解耦，但又可以让他们相互调用。（具体请查资料）</p>
+<p>36、谓词NSPredicate<br>Cocoa 提供了NSPredicate 用于指定过滤条件，谓词是指在计算机中表示计算真假值的函数，它使用起来有点儿像SQL 的查询条件，主要用于从集合中分拣出符合条件的对象，也可以用于字符串的正则匹配。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/10/29/与java比较/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="objective-c与java比较" data-title="objective-c 与java比较" data-url="http://yoursite.com/2015/10/29/objective-c与java比较/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 echo Ge
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
